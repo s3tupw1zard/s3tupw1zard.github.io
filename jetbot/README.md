@@ -27,32 +27,32 @@
 > // zeromq herunterladen
 > wget https://github.com/zeromq/libzmq/releases/download/v4.2.2/zeromq-4.2.2.tar.gz
 >
-> // tarball entpacken
+> \# tarball entpacken
 > tar xvzf zeromq-4.2.2-tar.gz
 >
-> // Abhängigkeiten für zeromq installieren
+> \# Abhängigkeiten für zeromq installieren
 > sudo apt update
 > sudo apt-get install -y libtool pkg-config build-essential autoconf automake uuid-dev
 >
-> // makefile erstellen
+> \# makefile erstellen
 > cd zeromq-4.2.2 
 > ./configure
 >
-> // Kompilieren und installieren
+> \# Kompilieren und installieren
 > sudo make install
 >
-> // Den zeromq Treiber in Linux installieren
+> \# Den zeromq Treiber in Linux installieren
 > sudo ldconfig
 >
-> // Überprüfen ob zeromq installiert ist
+> \# Überprüfen ob zeromq installiert ist
 > ldconfig -p | grep zmq
 >
 >
-> // Erwartete Ausgabe
-> ###########################################################
-> // libzmq.so.5 (libc6,x86-64) => /usr/local/lib/libzmq.so.5
-> // libzmq.so (libc6,x86-64) => /usr/local/lib/libzmq.so
-> ###########################################################
+> \# Erwartete Ausgabe
+> \###########################################################
+> \# libzmq.so.5 (libc6,x86-64) => /usr/local/lib/libzmq.so.5
+> \# libzmq.so (libc6,x86-64) => /usr/local/lib/libzmq.so
+> \###########################################################
 >
 
 
@@ -120,10 +120,10 @@ Wer möchte kann auch einen anderen Editor verwenden.
 
 Der Inhalt dieses Bash-Skripts ist folgender:
 
-> #!/bin/bash
-> source ~/jupyter/jupyter-env/bin/activate
-> jupyter notebook --ip 0.0.0.0 --port 8888 --no-browser
-> deactivate
+> #!/bin/bash\n\n
+> source ~/jupyter/jupyter-env/bin/activate\n\n
+> jupyter notebook --ip 0.0.0.0 --port 8888 --no-browser\n\n
+> deactivate\n\n
 
 Mit Nano kann man mit der Tastenkombination `Strg + X` speichern und schließen.
 
@@ -171,15 +171,15 @@ Diese erstellt und öffnet man mit `sudo nano /etc/supervisor/conf.d/jupyter-not
 
 Als Inhalt dieser Datei nimmt man folgendes her:
 
-> [program:jupyter-notebook]
-> directory=/home/jetbot
-> command=/bin/bash -E -c ../run-jupyter-notebook.sh
-> autostart=true
-> autorestart=true
-> stopsignal=INT
-> stopasgroup=true
-> killasgroup=true
-> user=jetbot
+> [program:jupyter-notebook]\n\n
+> directory=/home/jetbot\n\n
+> command=/bin/bash -E -c ../run-jupyter-notebook.sh\n\n
+> autostart=true\n\n
+> autorestart=true\n\n
+> stopsignal=INT\n\n
+> stopasgroup=true\n\n
+> killasgroup=true\n\n
+> user=jetbot\n\n
 
 Danach drückt man wieder `Strg + X` um zu speichern und die Datei zu verlassen.
 
