@@ -24,35 +24,35 @@
 
 3.	Nun muss zeromq installiert werden. Dafür führt man folgende Kommandos aus:
 
-> // zeromq herunterladen
-> wget https://github.com/zeromq/libzmq/releases/download/v4.2.2/zeromq-4.2.2.tar.gz
+> \# zeromq herunterladen\n\n
+> wget https://github.com/zeromq/libzmq/releases/download/v4.2.2/zeromq-4.2.2.tar.gz\n\n
 >
-> \# tarball entpacken
-> tar xvzf zeromq-4.2.2-tar.gz
+> \# tarball entpacken\n\n
+> tar xvzf zeromq-4.2.2-tar.gz\n\n
 >
-> \# Abhängigkeiten für zeromq installieren
-> sudo apt update
-> sudo apt-get install -y libtool pkg-config build-essential autoconf automake uuid-dev
+> \# Abhängigkeiten für zeromq installieren\n\n
+> sudo apt update\n\n
+> sudo apt-get install -y libtool pkg-config build-essential autoconf automake uuid-dev\n\n
 >
-> \# makefile erstellen
-> cd zeromq-4.2.2 
-> ./configure
+> \# makefile erstellen\n\n
+> cd zeromq-4.2.2\n\n
+> ./configure\n\n
 >
-> \# Kompilieren und installieren
-> sudo make install
+> \# Kompilieren und installieren\n\n
+> sudo make install\n\n
 >
-> \# Den zeromq Treiber in Linux installieren
-> sudo ldconfig
+> \# Den zeromq Treiber in Linux installieren\n\n
+> sudo ldconfig\n\n
 >
-> \# Überprüfen ob zeromq installiert ist
-> ldconfig -p | grep zmq
+> \# Überprüfen ob zeromq installiert ist\n\n
+> ldconfig -p | grep zmq\n\n
 >
 >
-> \# Erwartete Ausgabe
-> \###########################################################
-> \# libzmq.so.5 (libc6,x86-64) => /usr/local/lib/libzmq.so.5
-> \# libzmq.so (libc6,x86-64) => /usr/local/lib/libzmq.so
-> \###########################################################
+> \# Erwartete Ausgabe\n\n
+> \###########################################################\n\n
+> \# libzmq.so.5 (libc6,x86-64) => /usr/local/lib/libzmq.so.5\n\n
+> \# libzmq.so (libc6,x86-64) => /usr/local/lib/libzmq.so\n\n
+> \###########################################################\n\n
 >
 
 
