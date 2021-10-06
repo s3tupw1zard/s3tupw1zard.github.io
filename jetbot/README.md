@@ -24,35 +24,35 @@
 
 3.	Nun muss zeromq installiert werden. Dafür führt man folgende Kommandos aus:
 
-> \# zeromq herunterladen  \n
-> wget https://github.com/zeromq/libzmq/releases/download/v4.2.2/zeromq-4.2.2.tar.gz  \n
+> \# zeromq herunterladen  \
+> wget https://github.com/zeromq/libzmq/releases/download/v4.2.2/zeromq-4.2.2.tar.gz  \
 >
-> \# tarball entpacken  \n
-> tar xvzf zeromq-4.2.2-tar.gz  \n
+> \# tarball entpacken  \
+> tar xvzf zeromq-4.2.2-tar.gz  \
 >
-> \# Abhängigkeiten für zeromq installieren  \n
-> sudo apt update  \n
-> sudo apt-get install -y libtool pkg-config build-essential autoconf automake uuid-dev  \n
+> \# Abhängigkeiten für zeromq installieren  \
+> sudo apt update  \
+> sudo apt-get install -y libtool pkg-config build-essential autoconf automake uuid-dev  \
 >
-> \# makefile erstellen  \n
-> cd zeromq-4.2.2  \n
-> ./configure  \n
+> \# makefile erstellen  \
+> cd zeromq-4.2.2  \
+> ./configure  \
 >
-> \# Kompilieren und installieren  \n
-> sudo make install  \n
+> \# Kompilieren und installieren  \
+> sudo make install  \
 >
-> \# Den zeromq Treiber in Linux installieren  \n
-> sudo ldconfig  \n
+> \# Den zeromq Treiber in Linux installieren  \
+> sudo ldconfig  \
 >
-> \# Überprüfen ob zeromq installiert ist  \n
-> ldconfig -p | grep zmq  \n
+> \# Überprüfen ob zeromq installiert ist  \
+> ldconfig -p | grep zmq  \
 >
 >
-> \# Erwartete Ausgabe  \n
-> \###########################################################  \n
-> \# libzmq.so.5 (libc6,x86-64) => /usr/local/lib/libzmq.so.5  \n
-> \# libzmq.so (libc6,x86-64) => /usr/local/lib/libzmq.so  \n
-> \###########################################################  \n
+> \# Erwartete Ausgabe  \
+> \###########################################################  \
+> \# libzmq.so.5 (libc6,x86-64) => /usr/local/lib/libzmq.so.5  \
+> \# libzmq.so (libc6,x86-64) => /usr/local/lib/libzmq.so  \
+> \###########################################################  \
 >
 
 
@@ -120,10 +120,10 @@ Wer möchte kann auch einen anderen Editor verwenden.
 
 Der Inhalt dieses Bash-Skripts ist folgender:
 
-> #!/bin/bash  \n
-> source ~/jupyter/jupyter-env/bin/activate  \n
-> jupyter notebook --ip 0.0.0.0 --port 8888 --no-browser  \n
-> deactivate  \n
+> #!/bin/bash  \
+> source ~/jupyter/jupyter-env/bin/activate  \
+> jupyter notebook --ip 0.0.0.0 --port 8888 --no-browser  \
+> deactivate  \
 
 Mit Nano kann man mit der Tastenkombination `Strg + X` speichern und schließen.
 
@@ -171,15 +171,15 @@ Diese erstellt und öffnet man mit `sudo nano /etc/supervisor/conf.d/jupyter-not
 
 Als Inhalt dieser Datei nimmt man folgendes her:
 
-> [program:jupyter-notebook] \n
-> directory=/home/jetbot \n
-> command=/bin/bash -E -c ../run-jupyter-notebook.sh \n
-> autostart=true \n
-> autorestart=true \n
-> stopsignal=INT \n
-> stopasgroup=true \n
-> killasgroup=true \n
-> user=jetbot \n
+> [program:jupyter-notebook] \
+> directory=/home/jetbot \
+> command=/bin/bash -E -c ../run-jupyter-notebook.sh \
+> autostart=true \
+> autorestart=true \
+> stopsignal=INT \
+> stopasgroup=true \
+> killasgroup=true \
+> user=jetbot \
 
 Danach drückt man wieder `Strg + X` um zu speichern und die Datei zu verlassen.
 
