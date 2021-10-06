@@ -24,6 +24,7 @@
 
 3.	Nun muss zeromq installiert werden. Dafür führt man folgende Kommandos aus:
 
+>
 > \# zeromq herunterladen  \
 > wget https://github.com/zeromq/libzmq/releases/download/v4.2.2/zeromq-4.2.2.tar.gz  \
 >
@@ -52,7 +53,7 @@
 > \###########################################################  \
 > \# libzmq.so.5 (libc6,x86-64) => /usr/local/lib/libzmq.so.5  \
 > \# libzmq.so (libc6,x86-64) => /usr/local/lib/libzmq.so  \
-> \###########################################################  \
+> \###########################################################  
 >
 
 
@@ -123,7 +124,7 @@ Der Inhalt dieses Bash-Skripts ist folgender:
 > #!/bin/bash  \
 > source ~/jupyter/jupyter-env/bin/activate  \
 > jupyter notebook --ip 0.0.0.0 --port 8888 --no-browser  \
-> deactivate  \
+> deactivate  
 
 Mit Nano kann man mit der Tastenkombination `Strg + X` speichern und schließen.
 
@@ -179,7 +180,7 @@ Als Inhalt dieser Datei nimmt man folgendes her:
 > stopsignal=INT \
 > stopasgroup=true \
 > killasgroup=true \
-> user=jetbot \
+> user=jetbot 
 
 Danach drückt man wieder `Strg + X` um zu speichern und die Datei zu verlassen.
 
