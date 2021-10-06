@@ -1,4 +1,4 @@
-# README für jupyter-notebook für den Jetbot
+# README für jupyter-notebook für den Yahboom Jetbot
 
 ## Links zu GitHub-Projekten die zum Testen verwendet werden können
 
