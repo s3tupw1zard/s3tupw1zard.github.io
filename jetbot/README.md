@@ -108,7 +108,7 @@ Daraufhin muss Jupyter einmal neugestartet werden um die Datei `/home/jetbot/.ju
 
 ### Erstellen eines Skripts um Jupyter Notebook mit der vietuellen Umgebung zu starten
 
-Nun erstellt man mit `nano ~/run-jupyter-notebook.sh` ein Bash Skript. Hierfür muss der Editor Nano mit `sudo apt install nano -y` installiert werden.
+Nun erstellt man mit `nano ~/jupyter/run-jupyter-notebook.sh` ein Bash Skript. Hierfür muss der Editor Nano mit `sudo apt install nano -y` installiert werden.
 Wer möchte kann auch einen anderen Editor verwenden.
 
 Der Inhalt dieses Bash-Skripts ist folgender:
@@ -123,7 +123,7 @@ Mit Nano kann man mit der Tastenkombination `Strg + X` speichern und schließen.
 Daraufhin muss das Bash-Skript noch ausführbar gemacht werden.
 Dafür gibt man folgenden Befehl ein:
 
-> chmod +x ~/run-jupyter-notebook.sh
+> chmod +x ~/jupyter/run-jupyter-notebook.sh
 
 ## Jupyter Lab installieren
 
@@ -144,7 +144,7 @@ Sobald das Paket installiert ist, kann mit `jupyter lab` Jupyter Lab nun gestart
 
 ![Jupyter Lab](https://linaro.atlassian.net/wiki/download/thumbnails/26092012207/image2019-8-25_11-50-54.png?version=1&modificationDate=1566751862473&cacheVersion=1&api=v2&width=640&height=400)
 
-## Jupyter Notebook als Server Dienst laufen lassen
+## Jupyter Notebook / Lab als Server Dienst laufen lassen
 
 Mit diesem Setup muss man den Jupyter Notebook Server jedes mal nach einem Neustart von Hand starten.
 Man kann ihn jedoch auch als System Dienst mit dem System mitstarten lassen.
@@ -174,6 +174,35 @@ Danach drückt man wieder `Strg + X` um zu speichern und die Datei zu verlassen.
 
 Sobald die Konfiguration fertig ist muss man das folgende Kommando ausführen um diese zu übernehmen:
 > sudo systemctl restart supervisor.service
+
+### Eine Supervisor Konfiguration für Jupyter Lab erstellen
+
+Um Jupyter Lab ebenfalls als Dienst laufen zu lassen muss wieder eine Konfiguration erstellt werden. 
+Diese erstellt und öffnet man mit `sudo nano /etc/supervisor/conf.d/jupyter-lab.conf`
+
+Als Inhalt dieser Datei nimmt man eine angepasste Variante her, da Jupyter Lab das aktuelle Verzeichnis verwendet.
+Das heißt, wenn man Jupyter Lab in `/home/jetbot/Downloads` öffnen würde, könnte man das Verzeichnis `/home/jetbot/contents` nicht öffnen.
+
+>[program:jupyter-lab] \
+> directory=/home/jetbot \
+> command=/bin/bash -E -c /home/jetbot/jupyter/run-jupyter-lab.sh \
+> autostart=true \
+> autorestart=true \
+> stopsignal=INT \
+> stopasgroup=true \
+> killasgroup=true \
+> user=jetbot
+
+### Ein Bash Skript für Jupyter Lab erstellen
+
+Das folgende Skript sorgt erstmal dafür, dass man sich in `/home/jetbot/contents` befindet und startet dann darin Jupyter Lab.
+
+> #!/bin/bash \
+> cd /home/jetbot/contents \
+> jupyter lab \
+> deactivate
+
+Natürlich kann man in beiden Skripten und Konfigurationen auch den Benutzer anpassen, wenn der eigene Benutzer anders heißt.
 
 ### Wie öffne ich ein neues Notebook mit einem eigenen Port?
 
