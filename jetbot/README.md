@@ -195,7 +195,7 @@ Das heißt, wenn man Jupyter Lab in `/home/jetbot/Downloads` öffnen würde, kö
 
 ### Ein Bash Skript für Jupyter Lab erstellen
 
-Das folgende Skript sorgt erstmal dafür, dass man sich in `/home/jetbot/contents` befindet und startet dann darin Jupyter Lab.
+Das folgende Skript sorgt erstmal dafür, dass man sich in `/home/jetbot/contents` befindet und startet dann darin das Kommando für Jupyter Lab ausführt.
 
 > #!/bin/bash \
 > cd /home/jetbot/contents \
